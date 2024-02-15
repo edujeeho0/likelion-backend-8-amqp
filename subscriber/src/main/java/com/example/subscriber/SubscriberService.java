@@ -17,4 +17,10 @@ public class SubscriberService {
     public void receiveDirect(String message) {
         log.info("in direct received: {}", message);
     }
+
+    @RabbitListener(queues = "#{topicQueue.name}")
+    public void receiveTopic(String message) {
+        log.info("in direct received: {}", message);
+    }
+
 }

@@ -47,6 +47,24 @@ public class SubscriberConfig {
                 .with("info");
     }
 
+    @Bean
+    public TopicExchange topicExchange() {
+        return new TopicExchange("boot.topic");
+    }
+
+    @Bean
+    public Queue topicQueue() {
+        return new AnonymousQueue();
+    }
+
+    @Bean
+    public Binding topicBinding() {
+        return BindingBuilder
+                .bind(topicQueue())
+                .to(topicExchange())
+                .with("log.*");
+    }
+
 //    @Bean
 //    public Binding fanoutBinding(
 //            // 어떤 Queue로 등록된 Bean을 사용할지

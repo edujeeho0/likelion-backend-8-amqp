@@ -27,5 +27,14 @@ public class PublisherController {
     ) {
         service.directMessage(key, message);
     }
-
+    
+    @PostMapping("topic")
+    public void topic(
+            @RequestParam("topic")
+            String topic,
+            @RequestParam("message")
+            String message
+    ) {
+        service.topicMessage(topic, message);
+    }
 }

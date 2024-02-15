@@ -32,4 +32,13 @@ public class PublisherService {
                 message
         );
     }
+    
+    private final TopicExchange topicExchange;
+    public void topicMessage(String topic, String message) {
+        rabbitTemplate.convertAndSend(
+                topicExchange.getName(),
+                topic,
+                message
+        );
+    }
 }

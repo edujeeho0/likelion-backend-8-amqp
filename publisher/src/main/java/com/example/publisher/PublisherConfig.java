@@ -16,4 +16,9 @@ public class PublisherConfig {
     public DirectExchange directExchange() {
         return new DirectExchange("boot.direct");
     }
+    
+    @Bean
+    public TopicExchange topicExchange() {
+        return new TopicExchange("boot.topic");
+    }
 }
